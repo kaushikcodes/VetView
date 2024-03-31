@@ -2,11 +2,6 @@ import gradio as gr
 import os
 from openai import OpenAI
 
-#client = OpenAI(
-    # Replace with your valid API key
-    #api_key=""
-#)
-
 def chat_gpt(message):
     response = client.chat.completions.create(
         model="gpt-4",
