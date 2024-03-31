@@ -2,7 +2,10 @@ from flask import Flask, render_template, request, url_for
 from werkzeug.utils import secure_filename
 from flask import send_from_directory
 import os
-
+import gradio as gr
+import os
+import threading
+from openai import OpenAI
 # Flask configuration and initial setup
 app = Flask(__name__)
 UPLOAD_FOLDER = 'uploads/'
@@ -11,6 +14,13 @@ app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024  # 16 MB limit
 
 if not os.path.exists(UPLOAD_FOLDER):
     os.makedirs(UPLOAD_FOLDER)
+
+client = OpenAI(
+    # Replace with your valid API key
+    api_key=""
+)
+
+
 
 @app.route('/')
 def home():
@@ -75,5 +85,30 @@ def diagnose():
 def uploaded_file(filename):
     return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
 
+'''
+@app.route('/chat', methods=['POST'])
+def chatnow():
+    breed='lab'
+    age=2
+    cond='diarrhea'
+    return render_template('chat.html', dog_breed=breed, dog_age=age, dog_condition=cond)
+'''
+@app.route('/chat', methods=['GET','POST'])
+def generate_text():
+    breed = 'labrador'
+    age = 8
+    cond = 'excessive nonstop severe case of diarrhea'
+    completion = client.chat.completions.create(
+        model="gpt-3.5-turbo",
+        messages=[
+            {"role": "system",
+             "content": f"My pet dog is a {age} year old {breed}. Her stool indicates that she has {cond}. What do you recommend is the best course of action?"}
+        ]
+    )
+
+    answer = completion.choices[0].message.content.strip()
+    question = f"My pet dog is a {age} year old {breed}. Her stool indicates that she has {cond}. What do you recommend is the best course of action?"
+
+    return render_template('chat.html', question=question, answer=answer)
 if __name__ == '__main__':
     app.run(port=4000, debug=True)
