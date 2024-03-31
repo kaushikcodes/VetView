@@ -66,6 +66,9 @@ def diagnose():
         # Render the diagnosis page with the image and prediction
         return render_template('diagnose.html', bowel_health=predicted_bowel_health, image_url=image_url)
 # Route to serve uploaded files
+
+
+# Route to serve uploaded files
 @app.route('/uploads/<filename>')
 def uploaded_file(filename):
     return send_from_directory(app.config['UPLOAD_FOLDER'], filename)

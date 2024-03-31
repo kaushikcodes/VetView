@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
- <!-- css -->
- <head>
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VetView</title>
@@ -9,50 +8,77 @@
 </head>
 
 <header class="header">
-    <!-- Navigation and header content goes here -->
-     <div class="brand">VetView</div>
+    <div class="brand">VetView</div>
     <nav>
-                    <ul>
-                        <li><a href="/about" class="button">About Us</a></li>
-                        <li><a href="/contact" class="button">Services</a></li>
-                        <!-- Add other navigation links as needed -->
-                    </ul>
-      </nav>
+        <ul>
+            <li><a href="/about" class="button">About Us</a></li>
+            <li><a href="/contact" class="button">Services</a></li>
+        </ul>
+    </nav>
 </header>
 
-
-
-
-  
 <body>
+    <div class="white-card">
+        <h1 class="text2">Stool Checker</h1>
 
-    <div class="container">
-        <!-- Other content -->
+        <!-- Updated form action to use the '/diagnosis' route -->
+        <form method="post" action="{{ url_for('diagnose') }}" enctype="multipart/form-data">
+            <div class="form-container">
+                <label for="breed-type">Breed Type</label>
+                <input id="breed-type" type="text" name="breed_type" class="input" placeholder="Enter breed type">
 
-        <!-- Cards container -->
-       
-        <div class="white-card">
-            <!-- Content for the white card -->
+                <label for="date">Date</label>
+                <input id="date" type="date" name="date" class="input">
 
-            <h1>Upload an Image</h1>
-            <form action="/diagnosis" method="post" enctype="multipart/form-data">
-                <input type="file" name="file" accept="image/*">
-                <input type="submit" value="Diagnose">
-            </form>
-        
-            {% if image_url %}
-                <h2>Uploaded Image:</h2>
-                <img src="{{ image_url }}" alt="Uploaded Image" style="max-width: 100%;">
-            {% endif %}
-            
-        </div>
-        <div class="yellow-card">
-            <!-- Content for the yellow card -->
-        </div>
-   
+                <label for="file-upload" class="button">Upload Image</label>
+                <input id="file-upload" type="file" name="file" accept="image/*" class="input">
+
+                <input type="submit" value="Submit and Diagnose" class="button">
+            </div>
+        </form>
+
+        {% if image_url %}
+            <h2>Uploaded Image:</h2>
+            <img src="{{ image_url }}" alt="Uploaded Image" style="max-width: 100%;">
+        {% endif %}
     </div>
 
-
+    <div class="yellow-card"></div>
     <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
+
+
+<footer class="footer">
+    <div class="footer-section">
+        <h2>PawPrint</h2>
+        <p>Follow us</p>
+        <div class="social-icons">
+            <a href="#"><img src="path-to-instagram-icon.png" alt="Instagram"></a>
+            <a href="#"><img src="path-to-twitter-icon.png" alt="Twitter"></a>
+            <a href="#"><img src="path-to-spotify-icon.png" alt="Spotify"></a>
+        </div>
+    </div>
+    <div class="footer-section">
+        <h3>Company</h3>
+        <ul>
+            <li><a href="#">About us</a></li>
+            <li><a href="#">Privacy policy Terms</a></li>
+        </ul>
+    </div>
+    <div class="footer-section">
+        <h3>Community</h3>
+        <ul>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Testimonials</a></li>
+            <li><a href="#">Blog</a></li>
+        </ul>
+    </div>
+    <div class="footer-section">
+        <h3>Help</h3>
+        <ul>
+            <li><a href="#">Support FAQ</a></li>
+            <li><a href="#">Mobile App</a></li>
+        </ul>
+    </div>
+</footer>
 </html>
