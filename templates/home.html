@@ -19,32 +19,51 @@
 
 <body>
     <div class="white-card">
+        <div class="container">
+
+        <h1 class="text"> Understand Your Dog's Health, One Stool at a Time</h1>
         <h1 class="text2">Stool Checker</h1>
-
-        <!-- Updated form action to use the '/diagnosis' route -->
-        <form method="post" action="{{ url_for('diagnose') }}" enctype="multipart/form-data">
+        <form method="post" action="/diagnosis" enctype="multipart/form-data">
             <div class="form-container">
-                <label for="breed-type">Breed Type</label>
-                <input id="breed-type" type="text" name="breed_type" class="input" placeholder="Enter breed type">
-
-                <label for="date">Date</label>
-                <input id="date" type="date" name="date" class="input">
-
-                <label for="file-upload" class="button">Upload Image</label>
-                <input id="file-upload" type="file" name="file" accept="image/*" class="input">
-
-                <input type="submit" value="Submit and Diagnose" class="button">
+                <!-- Breed Type Input -->
+                <div class="input-group">
+                    <label for="breed-type">Breed</label>
+                    <input id="breed-type" type="text" name="breed_type" class="input" placeholder="Enter breed type">
+                </div>
+                
+                <!-- Age Input -->
+                <div class="input-group">
+                    <label for="age">Age </label>
+                    <input id="age" type="number" name="age" class="input" placeholder="Enter age in years">
+                </div>
+    
+                <!-- Image Upload Button on a new line -->
+                <label for="file-upload" class="button image-upload">IMAGE UPLOAD</label>
+                <input id="file-upload" type="file" name="file" accept="image/*" hidden>
+    
+                <!-- Submit Button -->
+                <input type="submit" value="Submit and Diagnose" class="button submit">
             </div>
         </form>
-
+    
         {% if image_url %}
-            <h2>Uploaded Image:</h2>
-            <img src="{{ image_url }}" alt="Uploaded Image" style="max-width: 100%;">
+            <div class="image-preview">
+                <h2>Uploaded Image:</h2>
+                <img src="{{ image_url }}" alt="Uploaded Image" style="max-width: 100%;">
+            </div>
         {% endif %}
     </div>
+</div>
+    
 
-    <div class="yellow-card"></div>
+        <div class="yellow-card">
+            
+        </div>
+        
+   
     <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+
 </body>
 
 
@@ -73,7 +92,7 @@
             <li><a href="#">Blog</a></li>
         </ul>
     </div>
-    <div class="footer-section">
+    <div class="footer-section"`>
         <h3>Help</h3>
         <ul>
             <li><a href="#">Support FAQ</a></li>

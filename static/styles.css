@@ -49,12 +49,24 @@
 }
 
 .text {
-    color: #030303;
-    font-size: 20px;
-    font-family: "Roboto Mono";
-    font-weight: 500;
-    line-height: 24px;
+  color: #030303;
+  font-size: 64px;
+  font-family: "Roboto Mono";
+  font-weight: 600;
+  line-height: 80px;
 }
+
+.card {
+  top: 552px;
+  left: 38px;
+  width: 692px;
+  height: 192px;
+  background-color: #ffffff;
+  border: 1px solid #e9e9e9;
+  box-sizing: border-box;
+  box-shadow: 0px 2px 10px rgba(3,3,3,0.1);
+}
+
 
 
 
@@ -142,16 +154,29 @@
   /* Specific styles for the file upload label */
   .form-container label[for="file-upload"] {
     display: inline-block;
-    background-color: #e9e9e9; /* Matching the other input fields */
-    padding: 8px 12px; /* Consistent padding with the other elements */
-    border: 1px solid #030303; /* Consistent border with the other elements */
-  }
+    background-color: #e9e9e9; /* Light grey background */
+    padding: 8px 12px; /* Padding inside the label */
+    border: 1px solid #030303; /* Solid border to match the design */
+    font-size: 16px; /* Text size to match the design */
+    font-family: "Roboto Mono", monospace;
+    /* Increase the width of the upload label to make it look like a larger button */
+    width: auto; /* Or you can set a specific width */
+    min-width: 120px; /* Or adjust as necessary to fit your design */
+    /* Other styles */
+    cursor: pointer;
+    text-align: center; /* Ensures the text within the label is centered */
+    border-radius: 2px;
+    box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.8);
+    text-transform: uppercase;
+    margin-right: 10px; /* Ensure some space between this label and other elements */
+}
 
   /* Hidden actual file input field */
   .form-container #file-upload {
     display: none; /* Hide the actual input field */
   }
 
+  
   /* Adjustments to the image preview area */
   .image-preview {
     margin-top: 20px; /* Space above the image preview */
@@ -166,6 +191,65 @@
     line-height: 28px;
   }
 
+
+  .input-group {
+    display: flex; /* Use flexbox for the input group */
+    justify-content: flex-start; /* Align to the start */
+    align-items: center; /* Center align the items */
+    margin-bottom: 10px; /* Add some margin below each group */
+  }
+  
+  .input-group .input {
+    margin-right: 10px; /* Keep some space between inputs */
+    flex-grow: 1; /* Let inputs take up available space */
+  }
+  
+  /* Adjust the size of the age input if it still needs to be smaller */
+  .input-group input[type="number"]#age {
+    flex-grow: 0;
+    width: 50%; /* Adjust this to fit the age input nicely next to breed type */
+  }
+  
+/* Assuming this CSS is an addition to your current styles */
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.input {
+  margin-bottom: 5px; /* Add space below each input */
+}
+
+/* Adjust the upload button style */
+.image-upload {
+  padding: 10px 15px; /* Match padding to other buttons */
+  background-color: #f9f44f; /* Use a color that matches the design */
+  border: none;
+  border-radius: 2px;
+  box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.8);
+  color: #030303;
+  text-transform: uppercase;
+  margin-top: 10px; /* Space above the upload button */
+  cursor: pointer;
+}
+
+/* If the upload button needs to be full width like the other inputs */
+.image-upload {
+  width: 100%; /* Set button to full container width */
+  box-sizing: border-box; /* Include padding and border in the width */
+}
+
+
+/* Style for the image preview section */
+.image-preview {
+  margin-top: 20px; /* Space above the image preview */
+}
+
+/* Add more styles as necessary to match your design */
+
+  
 
 
   /*footer*/
