@@ -21,29 +21,36 @@
     <div class="white-card">
         <div class="container">
 
-        <h1 class="text"> Understand Your Dog's Health, One Stool at a Time</h1>
-        <h1 class="text2">Stool Checker</h1>
+        <h1 class="text"> <p style="font-family:'Verdana'">Understand Your Dog's Health </p></h1>
+        <h1 class="text" ><p style="font-size: 40px">One Stool at a Time</p></h1>
+    
         <form method="post" action="/diagnosis" enctype="multipart/form-data">
-            <div class="form-container">
-                <!-- Breed Type Input -->
-                <div class="input-group">
-                    <label for="breed-type">Breed</label>
-                    <input id="breed-type" type="text" name="breed_type" class="input" placeholder="Enter breed type">
+            <div class="card">
+                <h1 class="text2">Stool Checker</h1>
+                <div class="form-container">
+
+                   
+                    <!-- Breed Type Input -->
+                    <div class="input-group">
+                        <label for="breed-type">Breed</label>
+                        <input id="breed-type" type="text" name="breed_type" class="input" placeholder="Enter breed type">
+                    </div>
+                    
+                    <!-- Age Input -->
+                    <div class="input-group">
+                        <label for="age">Age </label>
+                        <input id="age" type="number" name="age" class="input" placeholder="Enter age in years">
+                    </div>
+            
+                    <!-- Image Upload Button -->
+                    <label for="file-upload" class="button image-upload">Upload</label>
+                    <input id="file-upload" type="file" name="file" accept="image/*" hidden>
+            
+                    <!-- Submit Button -->
+                    <input type="submit" value="Submit and Diagnose" class="button submit">
                 </div>
-                
-                <!-- Age Input -->
-                <div class="input-group">
-                    <label for="age">Age </label>
-                    <input id="age" type="number" name="age" class="input" placeholder="Enter age in years">
-                </div>
-    
-                <!-- Image Upload Button on a new line -->
-                <label for="file-upload" class="button image-upload">IMAGE UPLOAD</label>
-                <input id="file-upload" type="file" name="file" accept="image/*" hidden>
-    
-                <!-- Submit Button -->
-                <input type="submit" value="Submit and Diagnose" class="button submit">
             </div>
+            
         </form>
     
         {% if image_url %}
@@ -56,12 +63,11 @@
 </div>
     
 
-        <div class="yellow-card">
-            
-        </div>
-        
-   
-    <script src="{{ url_for('static', filename='script.js') }}"></script>
+<div class="yellow-card">
+    <div class="image"></div>
+</div>
+
+
 
 
 </body>
@@ -99,5 +105,8 @@
             <li><a href="#">Mobile App</a></li>
         </ul>
     </div>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </footer>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
 </html>
