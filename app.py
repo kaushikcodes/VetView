@@ -39,6 +39,14 @@ def upload_file():
         image_url = url_for('uploaded_file', filename=filename)
         return render_template('home.html', image_url=image_url)
 
+@app.route('/diagnosis', methods=['POST'])
+def diagnose():
+    #ideally use image and run the model here
+    #obtain predicted
+    predicted_bowel_health = 80
+    #set up diagnosis as per each prediction
+    return render_template('diagnose.html', bowel_health=predicted_bowel_health)
+
 # Route to serve uploaded files
 @app.route('/uploads/<filename>')
 def uploaded_file(filename):

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dog Bowel Health Diagnosis</title>
+    <style>
+        .meter {
+            height: 20px;
+            position: relative;
+            background: #f3f3f3;
+            border-radius: 25px;
+            margin-bottom: 20px;
+        }
+
+        .meter span {
+            display: block;
+            height: 100%;
+            border-radius: 25px;
+            background-color: #4CAF50;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .meter-text {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Dog Bowel Health Diagnosis</h1>
+
+        <!-- Use Jinja templating syntax correctly -->
+        <div class="meter">
+            <span style="width: {{ bowel_health }}%"></span>
+        </div>
+
+        <!-- Display the bowel health percentage -->
+        <div class="meter-text">Bowel Health: {{ bowel_health }}%</div>
+
+        <!-- Suggestions for improvements -->
+        <div>
+            <h2>Suggestions for Improvements:</h2>
+            <ul>
+                <li>Ensure your dog is getting enough fiber in their diet.</li>
+                <li>Regular exercise can improve bowel health.</li>
+                <li>Consider consulting with a veterinarian for a tailored diet plan.</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
