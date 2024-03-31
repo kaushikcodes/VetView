@@ -33,6 +33,7 @@ def upload_file():
             filename = f"{name}_{counter}{extension}"
             filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
             counter += 1
+            
         file.save(filepath)
         
         # Pass the URL for the saved image back to the template
