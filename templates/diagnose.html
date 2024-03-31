@@ -84,18 +84,25 @@
         <div class="meter-text">Bowel Health: {{ bowel_health }}%</div>
 
         <div>
-            <h2>Suggestions for Improvements:</h2>
-            <ul>
-                <li>Ensure your dog is getting enough fiber in their diet.</li>
-                <li>Regular exercise can improve bowel health.</li>
-                <li>Consider consulting with a veterinarian for a tailored diet plan.</li>
-            </ul>
+            
+            {% if bowel_health == 100 %}
+                <h2>Based on your dog's stool image, their bowel health is NORMAL. </h2>
+                <p>Your dog's bowel health appears to be excellent! Your dog's stool is firm and normal and you should continue your current care routine.</p>
+            {% elif bowel_health == 75 %}
+                <h2>Based on your dog's stool image, there seems to be a LACK OF HYDRATION. </h2>
+                <p>Your dog's bowel health is good, but there's room for improvement. Your dog's stool suggests lack of hydration in their diet. Consider adjusting their diet and ensuring they're getting enough exercise.</p>
+            {% elif bowel_health == 50 %}
+                <h2>Based on your dog's stool image, their stool is ABNORMALLY SOFT. </h2>
+                <p>Your dog's bowel health is average. It is highly likely your dog consumed something they shouldn't have. In the case that the diarrhea lasts over a day, it could mean that there has been a sudden change in diet. Please consult a vet if it persists.</p>
+            {% else %}
+                <h2>Based on your dog's stool image, they likely have DIARRHEA </h2>
+                <p>Your dog's bowel health is poor and is predicted to have diarrhea. Please consult a vet for a detailed examination and advice.</p>
+            {% endif %}
         </div>
-
         <h1>Click below to know our Expert AI's opinion:</h1>
 
         <form action="/chat" method="post" enctype="multipart/form-data">
-            <input type="submit" value="Dr. Brown's opinion: " style="width: 100%; box-sizing: border-box;">
+            <input type="submit" value="Dr. Scooby's opinion: " style="width: 100%; box-sizing: border-box;">
         </form>
     </div>
 </body>

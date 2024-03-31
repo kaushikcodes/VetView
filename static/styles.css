@@ -49,12 +49,26 @@
 }
 
 .text {
-    color: #030303;
-    font-size: 20px;
-    font-family: "Roboto Mono";
-    font-weight: 500;
-    line-height: 24px;
+  text-align: center;
+  color: #030303;
+  font-size: 64px;
+  font-family: "Roboto Mono";
+  font-weight: 600;
+  line-height: 80px;
 }
+
+.card {
+  top: 552px;
+  left: 38px;
+  
+  width: 800px;
+  height: 192px;
+  background-color: #ffffff;
+  border: 1px solid #e9e9e9;
+  box-sizing: border-box;
+  box-shadow: 0px 2px 10px rgba(3,3,3,0.1);
+}
+
 
 
 
@@ -62,27 +76,48 @@
 /*background container*/
 
 .white-card {
-    position: absolute;
-    top: 83px;
-    left: 0px;
-    width: 802px;
-    height: 900px;
-    background-color: #ffffff;
-    border: 1px solid #e9e9e9;
-    box-sizing: border-box;
-    box-shadow: 0px 2px 10px rgba(3,3,3,0.1);
-    z-index: 1; /* Ensure this card is on top if they overlap */
-  }
+  position: absolute;
+  top: 83px;
+  left: 0;
+  width: 802px;
+  height: 700px; /* Adjusted height */
+  background-color: #ffffff;
+  border: 1px solid #e9e9e9;
+  box-sizing: border-box;
+  box-shadow: 0px 2px 0px rgba(3,3,3,0.1);
+  z-index: 1;
+}
+
+.yellow-card {
+  position: absolute;
+  top: 83px;
+  right: 0;
+  width: calc(100% - 802px);
+  height: 700px; /* Adjusted height */
+  background-color: yellow;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 0;
+}
+
+.image {
+  width: 420px; /* Adjusted width if necessary */
+  height: 420px; /* Adjusted height if necessary */
   
-  .yellow-card {
-    position: absolute;
-    top: 83px;
-    left: 802px; /* This should start where the white card ends */
-    width: 648px;
-    height: 900px; /* Make the height same as the white card for uniformity */
-    background-color: #f9f44f;
-    z-index: 0; /* This card will be behind if they overlap */
-  }
+  background-image: url('/static/corgi.jpeg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-top: -140px;
+}
+
+
+
+
+  
+
+  
   
   /* Container to hold both cards */
   .cards-container {
@@ -93,4 +128,210 @@
     top: 88 px
   }
   
+
+/* stool*/
+.form-container {
+    display: flex;
+    justify-content: space-between; /* Spreads out the form elements */
+    align-items: center; /* Centers the form elements vertically */
+    padding: 20px; /* Padding around the form content */
+    margin-top: 20px; /* Space below the Stool Checker title */
+  }
+
+  .form-container label {
+    color: #030303;
+    font-size: 16px;
+    font-family: "Roboto Mono";
+    font-weight: 300;
+    margin-right: 10px; /* Space between label and input */
+  }
+
+  .form-container .input, .form-container .button {
+    background-color: #e9e9e9; /* Light grey background */
+    border: 1px solid #030303; /* Solid border to match the design */
+    border-radius: 2px; /* Slight rounding on the corners */
+    height: 40px; /* Matching height for all input and button elements */
+    padding: 8px 12px; /* Padding inside the inputs and button */
+    font-size: 16px; /* Text size to match the design */
+    font-family: "Roboto Mono", monospace;
+  }
+
+  .form-container .input {
+    flex-grow: 1; /* Allows the input fields to grow and fill available space */
+    margin-right: 10px; /* Space between input fields */
+  }
+
+  .form-container .button {
+    cursor: pointer; /* Changes the cursor to pointer when hovering over the button */
+    background-color: #f9f44f; /* Yellow background for the button */
+    color: #030303; /* Text color for the button */
+    box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.8); /* Shadow to match the design */
+    text-transform: uppercase; /* Uppercase text for the button */
+    border: none; /* No border for button to match the design */
+  }
+
+  .form-container .button:hover {
+    background-color: #e9e9e9; /* Lighter background on hover */
+  }
+
+  /* Specific styles for the file upload label */
+  .form-container label[for="file-upload"] {
+    display: inline-block;
+    align-items: center;
+    background-color: #e9e9e9; /* Light grey background */
+    padding: 8px 12px; /* Padding inside the label */
+    border: 1px solid #030303; /* Solid border to match the design */
+    font-size: 16px; /* Text size to match the design */
+    font-family: "Roboto Mono", monospace;
+    /* Increase the width of the upload label to make it look like a larger button */
+    width: auto; /* Or you can set a specific width */
+    min-width: 120px; /* Or adjust as necessary to fit your design */
+    /* Other styles */
+    cursor: pointer;
+    text-align: center; /* Ensures the text within the label is centered */
+    border-radius: 2px;
+    box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.8);
+    text-transform: uppercase;
+    margin-top: -1px;
+    margin-right: 45px; /* Ensure some space between this label and other elements */
+}
+
+  /* Hidden actual file input field */
+  .form-container #file-upload {
+    display: none; /* Hide the actual input field */
+  }
+
+  
+  /* Adjustments to the image preview area */
+  .image-preview {
+    margin-top: 20px; /* Space above the image preview */
+  }
+
+
+  .text2 {
+    text-align: center;
+    color: #030303;
+    font-size: 24px;
+    font-family: "Roboto Mono";
+    font-weight: 500;
+    line-height: 28px;
+  }
+
+  
+
+  .input-group {
+    display: flex; /* Use flexbox for the input group */
+    justify-content: flex-start; /* Align to the start */
+    align-items: center; /* Center align the items */
+    margin-bottom: 10px; /* Add some margin below each group */
+  }
+  
+  .input-group .input {
+    margin-right: 10px; /* Keep some space between inputs */
+    flex-grow: 1; /* Let inputs take up available space */
+  }
+  
+  /* Adjust the size of the age input if it still needs to be smaller */
+  .input-group input[type="number"]#age {
+    flex-grow: 0;
+    width: 60%; /* Adjust this to fit the age input nicely next to breed type */
+  }
+  
+/* Assuming this CSS is an addition to your current styles */
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.input {
+  margin-bottom: 5px; /* Add space below each input */
+}
+
+/* Adjust the upload button style */
+.image-upload {
+  padding: 10px 15px; /* Match padding to other buttons */
+  background-color: #f9f44f; /* Use a color that matches the design */
+  border: none;
+  border-radius: 2px;
+  box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.8);
+  color: #030303;
+  text-transform: uppercase;
+  margin-top: 10px; /* Space above the upload button */
+  cursor: pointer;
+}
+
+/* If the upload button needs to be full width like the other inputs */
+.image-upload {
+  width: 100%; /* Set button to full container width */
+  box-sizing: border-box; /* Include padding and border in the width */
+}
+
+
+/* Style for the image preview section */
+.image-preview {
+  margin-top: 20px; /* Space above the image preview */
+}
+
+
+
+  
+
+
+/*footer*/
+
+  .footer {
+    z-index: 2; /* Ensure the footer is above other elements */
+ 
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-top: 1px solid #e9e9e9;
+}
+
+.footer-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-section h2, .footer-section h3 {
+    color: #030303;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.footer-section p {
+    color: #030303;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li a {
+    color: #030303;
+    text-decoration: none;
+    font-size: 14px;
+    line-height: 2.5;
+}
+
+.social-icons {
+    display: flex;
+}
+
+.social-icons a {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.social-icons img {
+    width: 24px; /* Adjust as per your icon size */
+    height: 24px; /* Adjust as per your icon size */
+}
+
+
 
