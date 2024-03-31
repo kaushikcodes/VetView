@@ -58,7 +58,10 @@ def diagnose():
             filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
             counter += 1
         file.save(filepath)
-        
+        #pass that image into test fn
+        #get the result class
+        #if class = dia:
+        # display go to vet do this do that
         # Here, you would ideally use the saved image to run your model and predict bowel health
         predicted_bowel_health = 80  # Placeholder for actual prediction logic
         
