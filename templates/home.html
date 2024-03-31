@@ -1,18 +1,58 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <title>Image Upload</title>
+<html lang="en">
+ <!-- css -->
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VetView</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
-<body>
-    <h1>Upload an Image</h1>
-    <form action="/upload" method="post" enctype="multipart/form-data">
-        <input type="file" name="file" accept="image/*">
-        <input type="submit">
-    </form>
 
-    {% if image_url %}
-        <h2>Uploaded Image:</h2>
-        <img src="{{ image_url }}" alt="Uploaded Image" style="max-width: 100%;">
-    {% endif %}
+<header class="header">
+    <!-- Navigation and header content goes here -->
+     <div class="brand">VetView</div>
+    <nav>
+                    <ul>
+                        <li><a href="/about" class="button">About Us</a></li>
+                        <li><a href="/contact" class="button">Services</a></li>
+                        <!-- Add other navigation links as needed -->
+                    </ul>
+      </nav>
+</header>
+
+
+
+
+  
+<body>
+
+    <div class="container">
+        <!-- Other content -->
+
+        <!-- Cards container -->
+        <div class="cards-container">
+            <div class="white-card">
+                <!-- Content for the white card -->
+
+                <h1>Upload an Image</h1>
+                <form action="/upload" method="post" enctype="multipart/form-data">
+                    <input type="file" name="file" accept="image/*">
+                    <input type="submit">
+                </form>
+            
+                {% if image_url %}
+                    <h2>Uploaded Image:</h2>
+                    <img src="{{ image_url }}" alt="Uploaded Image" style="max-width: 100%;">
+                {% endif %}
+                
+            </div>
+            <div class="yellow-card">
+                <!-- Content for the yellow card -->
+            </div>
+        </div>
+    </div>
+
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
