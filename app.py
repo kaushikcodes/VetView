@@ -22,7 +22,7 @@ if not os.path.exists(UPLOAD_FOLDER):
 
 client = OpenAI(
     # Replace with your valid API key
-    api_key="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"
+    api_key=""
 )
 
 
