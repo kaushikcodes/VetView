@@ -46,6 +46,8 @@ def diagnose():
     file = request.files['file']
     if file.filename == '':
         return 'No selected file'
+
+    #run file through model
     if file:
         filename = secure_filename(file.filename)
         filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
@@ -71,4 +73,4 @@ def uploaded_file(filename):
     return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(port=4000, debug=True)
